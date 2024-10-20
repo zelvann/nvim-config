@@ -16,13 +16,33 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.cmd("set number")
+vim.opt.title = true
+vim.opt.number = true
+vim.opt.showcmd = true
+
+vim.opt.shiftwidth = 2
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.cindent = true
+vim.opt.tabstop = 2
+vim.opt.expandtab = true
+
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.scriptencoding = "utf-8"
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
   checker = { 
-    enabled = true 
+    enabled = true
   },
 })

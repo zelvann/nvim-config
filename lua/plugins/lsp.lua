@@ -8,11 +8,26 @@ return {
 	enabled = true,
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		
 		local lspconfig = require("lspconfig")
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
-		})
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true
+        },
+        gofumpt = true,
+        staticcheck = true
+      }
+    })
+
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+    })
 
 		require("mason").setup({
 			ui = {
@@ -26,7 +41,8 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				-- "gopls",
+        "lua_ls",
+        "pyright"
 			},
 			automatic_installation = true
 		})

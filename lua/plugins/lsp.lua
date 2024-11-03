@@ -27,6 +27,21 @@ return {
 
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						disable = { "incomplete-signature-doc", "trailing-space" },
+						globals = { "vim" },
+					},
+					format = {
+						defaultConfig = {
+							indent_style = "space",
+							indent_size = "2",
+							continuation_indent_size = "2",
+						},
+					},
+				},
+			},
 		})
 
 		lspconfig.pyright.setup({

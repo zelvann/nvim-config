@@ -9,9 +9,9 @@ return {
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
-		lspconfig.clangd.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.clangd.setup({
+		--	capabilities = capabilities,
+		-- })
 
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
@@ -60,7 +60,8 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"clangd",
+				-- "clangd",
+				"gopls",
 				"lua_ls",
 				"pyright",
 			},

@@ -18,6 +18,7 @@ return {
 				"proto",
 				"python",
 				"typescript",
+				"yaml",
 			},
 
 			sync_install = true,

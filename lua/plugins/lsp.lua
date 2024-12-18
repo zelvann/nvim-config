@@ -48,6 +48,10 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.yamlls.setup({
+			capabilities = capabilities,
+		})
+
 		require("mason").setup({
 			ui = {
 				icons = {

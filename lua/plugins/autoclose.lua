@@ -1,4 +1,5 @@
 return {
-  "cohama/lexima.vim",
-  enabled = true,
+	"cohama/lexima.vim",
+	enabled = true,
 }
+

@@ -9,9 +9,9 @@ return {
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
-		-- lspconfig.clangd.setup({
-		--	capabilities = capabilities,
-		-- })
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+		})
 
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
@@ -48,6 +48,16 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.terraformls.setup({
+			capabilities = capabilities,
+			filetypes = { "tofu", "terraform", "terraform-vars" },
+		})
+
+		lspconfig.tflint.setup({
+			capabilities = capabilities,
+			filetypes = { "tofu", "terraform" },
+		})
+
 		lspconfig.yamlls.setup({
 			capabilities = capabilities,
 		})
@@ -64,10 +74,13 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				-- "clangd",
+				"clangd",
 				"gopls",
 				"lua_ls",
 				"pyright",
+				"terraformls",
+				"tflint",
+				"yamlls",
 			},
 			automatic_installation = true,
 		})

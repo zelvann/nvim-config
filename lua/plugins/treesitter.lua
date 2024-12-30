@@ -17,10 +17,10 @@ return {
 				"php",
 				"proto",
 				"python",
+				"terraform",
 				"typescript",
 				"yaml",
 			},
-
 			sync_install = true,
 			auto_install = false,
 			highlight = {

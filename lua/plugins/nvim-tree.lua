@@ -4,22 +4,24 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	enabled = true,
-	opts = {
-		actions = {
-			open_file = {
-				quit_on_open = true,
+	opts = function()
+		require("nvim-tree").setup({
+			actions = {
+				open_file = {
+					quit_on_open = true,
+				},
 			},
-		},
-		filters = {
-			dotfiles = true,
-			exclude = {
-				".env",
-				".github",
-				".gitignore",
+			filters = {
+				dotfiles = true,
+				exclude = {
+					".env",
+					".github",
+					".gitignore",
+				},
 			},
-		},
-		modified = {
-			enable = true,
-		},
-	},
+			modified = {
+				enable = true,
+			},
+		})
+	end,
 }

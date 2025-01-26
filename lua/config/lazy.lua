@@ -14,14 +14,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<C-\\>", ":vsplit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-w>", ":close<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==")
+vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==")
 
 local opt = vim.opt
 

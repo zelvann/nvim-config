@@ -9,20 +9,22 @@ return {
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
+
 		lspconfig.clangd.setup({
 			capabilities = capabilities,
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 		})
 
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			settings = {
-				gopls = {
-					completeUnimported = true,
-					usePlaceholders = true,
-				},
 				gofumpt = true,
 				staticcheck = true,
 			},
+		})
+
+		lspconfig.intelephense.setup({
+			capabilities = capabilities,
 		})
 
 		lspconfig.lua_ls.setup({
@@ -76,6 +78,7 @@ return {
 			ensure_installed = {
 				"clangd",
 				"gopls",
+				"intelephense",
 				"lua_ls",
 				"pyright",
 				"terraformls",

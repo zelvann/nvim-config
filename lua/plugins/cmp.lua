@@ -24,7 +24,9 @@ return {
 			}, {
 				{ name = "buffer" },
 			}),
+			completion = {
+				completeopt = "menu,menuone,noinsert",
+			},
 		})
 	end,
 }
-

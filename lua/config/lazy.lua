@@ -21,10 +21,13 @@ vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<C-\\>", ":vsplit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-w>", ":close<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==")
 vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==")
+vim.keymap.set("n", "<C-t>", ":tabnew<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Tab>", ":tabprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Tab>", ":tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>", ":bdelete<CR>", { noremap = true, silent = true })
 
 local opt = vim.opt
 
@@ -44,6 +47,20 @@ opt.splitright = true
 opt.splitkeep = "cursor"
 opt.title = true
 opt.termguicolors = true
+opt.showtabline = 2
+
+vim.g.clipboard = {
+	name = "WslClipboard",
+	copy = {
+		["+"] = "clip.exe",
+		["*"] = "clip.exe",
+	},
+	paste = {
+		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+	},
+	cache_enabled = 0,
+}
 
 require("lazy").setup({
 	spec = {

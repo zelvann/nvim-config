@@ -24,14 +24,18 @@ vim.api.nvim_set_keymap("n", "<C-\\>", ":vsplit<CR>", { noremap = true, silent =
 
 vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==")
 vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==")
+vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Tab>", ":tabprevious<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Tab>", ":tabnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true })
+vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 local opt = vim.opt
 
 opt.autoindent = true
+opt.smartindent = true
 opt.bs = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 opt.copyindent = true

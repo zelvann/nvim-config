@@ -39,6 +39,7 @@ opt.smartindent = true
 opt.bs = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 opt.copyindent = true
+opt.cursorline = true
 opt.encoding = "utf-8"
 opt.expandtab = true
 opt.fileencoding = "utf-8"

@@ -4,10 +4,6 @@ return {
 	opts = {
 		auto_close = true,
 		focus = true,
-		win = {
-			type = "split",
-			position = "right",
-		},
 	},
 	keys = {
 		{

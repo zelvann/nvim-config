@@ -79,6 +79,7 @@ return {
 				"clangd",
 				"gopls",
 				"intelephense",
+				"jdtls",
 				"lua_ls",
 				"pyright",
 				"terraformls",

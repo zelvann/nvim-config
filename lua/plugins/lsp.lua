@@ -9,6 +9,9 @@ return {
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
+		lspconfig.biome.setup({
+			capabilities = capabilities,
+		})
 
 		lspconfig.clangd.setup({
 			capabilities = capabilities,
@@ -50,6 +53,10 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.tailwindcss.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.terraformls.setup({
 			capabilities = capabilities,
 			filetypes = { "tofu", "terraform", "terraform-vars" },
@@ -58,6 +65,17 @@ return {
 		lspconfig.tflint.setup({
 			capabilities = capabilities,
 			filetypes = { "tofu", "terraform" },
+		})
+
+		lspconfig.vtsls.setup({
+			capabilities = capabilities,
+			settings = {
+				typescript = {
+					preferences = {
+						importModuleSpecifier = "non-relative",
+					},
+				},
+			},
 		})
 
 		lspconfig.yamlls.setup({
@@ -76,14 +94,17 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"biome",
 				"clangd",
 				"gopls",
 				"intelephense",
 				"jdtls",
 				"lua_ls",
 				"pyright",
+				"tailwindcss",
 				"terraformls",
 				"tflint",
+				"vtsls",
 				"yamlls",
 			},
 			automatic_installation = true,

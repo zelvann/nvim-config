@@ -11,11 +11,11 @@ return {
 		local conform = require("conform")
 		null_ls.setup({
 			ensure_installed = {
+				"black",
 				"buf",
 				"clang-format",
 				"gofumpt",
 				"jq",
-				"php-cs-fixer",
 				"stylua",
 				"yamlfmt",
 			},
@@ -26,10 +26,12 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				go = { "gofumpt" },
+				javascript = { "biome", stop_after_first = true },
+				typescropt = { "biome", stop_after_first = true },
 				json = { "jq" },
 				lua = { "stylua" },
-				php = { "php-cs-fixer" },
 				proto = { "buf" },
+				python = { "black" },
 				yaml = { "yamlfmt" },
 			},
 			format_on_save = {

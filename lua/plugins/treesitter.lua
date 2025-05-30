@@ -20,6 +20,7 @@ return {
 				"python",
 				"terraform",
 				"typescript",
+				"tsx",
 				"yaml",
 			},
 			sync_install = true,

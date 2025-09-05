@@ -4,6 +4,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"nvim-java/nvim-java",
 	},
 	enabled = true,
 	config = function()
@@ -21,8 +22,10 @@ return {
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			settings = {
-				gofumpt = true,
-				staticcheck = true,
+				gopls = {
+					gofumpt = true,
+					staticcheck = false,
+				},
 			},
 		})
 

@@ -16,6 +16,7 @@ return {
 				"clang-format",
 				"gofumpt",
 				"jq",
+				"shfmt",
 				"stylua",
 				"yamlfmt",
 			},
@@ -33,6 +34,8 @@ return {
 				lua = { "stylua" },
 				proto = { "buf" },
 				python = { "black" },
+				sh = { "shfmt" },
+				svelte = { "biome", stop_after_first = true },
 				yaml = { "yamlfmt" },
 			},
 			format_on_save = {

@@ -9,17 +9,16 @@ return {
 	enabled = true,
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		local lspconfig = require("lspconfig")
-		lspconfig.biome.setup({
+		vim.lsp.config("biome", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.clangd.setup({
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 		})
 
-		lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			settings = {
 				gopls = {
@@ -29,11 +28,11 @@ return {
 			},
 		})
 
-		lspconfig.intelephense.setup({
+		vim.lsp.config("intelephense", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -52,25 +51,29 @@ return {
 			},
 		})
 
-		lspconfig.pyright.setup({
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.tailwindcss.setup({
+		vim.lsp.config("svelte", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.terraformls.setup({
+		vim.lsp.config("tailwindcss", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("terraformls", {
 			capabilities = capabilities,
 			filetypes = { "tofu", "terraform", "terraform-vars" },
 		})
 
-		lspconfig.tflint.setup({
+		vim.lsp.config("tflint", {
 			capabilities = capabilities,
 			filetypes = { "tofu", "terraform" },
 		})
 
-		lspconfig.vtsls.setup({
+		vim.lsp.config("vtsls", {
 			capabilities = capabilities,
 			settings = {
 				typescript = {
@@ -81,7 +84,7 @@ return {
 			},
 		})
 
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			capabilities = capabilities,
 		})
 
@@ -104,6 +107,7 @@ return {
 				"jdtls",
 				"lua_ls",
 				"pyright",
+				"svelte",
 				"tailwindcss",
 				"terraformls",
 				"tflint",

@@ -1,39 +1,39 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	commit = vim.fn.has("nvim-0.12") == 0 and "7caec274fd19c12b55902a5b795100d21531391f" or nil,
+	version = false,
 	build = ":TSUpdate",
 	enabled = true,
-	opts = function()
-		local configs = require("nvim-treesitter.configs")
-		configs.setup({
-			ensure_installed = {
-				"bash",
-				"c",
-				"cpp",
-				"go",
-				"html",
-				"java",
-				"javascript",
-				"json",
-				"lua",
-				"php",
-				"proto",
-				"python",
-				"svelte",
-				"terraform",
-				"typescript",
-				"tsx",
-				"yaml",
-			},
-			sync_install = true,
-			auto_install = false,
-			highlight = {
-				enable = true,
-				disable = {},
-				additional_vim_regex_highlighting = false,
-			},
-			indent = {
-				enable = true,
-			},
-		})
-	end,
+	opts = {
+		ensure_installed = {
+			"bash",
+			"c",
+			"cpp",
+			"go",
+			"html",
+			"java",
+			"javascript",
+			"json",
+			"lua",
+			"php",
+			"proto",
+			"python",
+			"svelte",
+			"terraform",
+			"typescript",
+			"tsx",
+			"yaml",
+		},
+		sync_install = true,
+		auto_install = false,
+		highlight = {
+			enable = true,
+			disable = {},
+			additional_vim_regex_highlighting = false,
+		},
+		indent = {
+			enable = true,
+		},
+	},
 }

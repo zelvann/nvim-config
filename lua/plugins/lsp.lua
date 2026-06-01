@@ -53,6 +53,15 @@ return {
 
 		vim.lsp.config("pyright", {
 			capabilities = capabilities,
+			settings = {
+				python = {
+					analysis = {
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+						diagnosticMode = "workspace",
+					},
+				},
+			},
 		})
 
 		vim.lsp.config("svelte", {
